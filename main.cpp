@@ -74,7 +74,8 @@ int main()
     L.Add(new int(4));
     L.Add(new int(1));
     //L.bubbleSort(4);
-    L.selectionSort(4);
+    //L.selectionSort(4);
+    cout << *L.binarySearch(2,4) << endl << endl;
     L.Display();
 
     return 0;

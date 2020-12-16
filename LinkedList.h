@@ -204,6 +204,39 @@ public:
 
 
     }
+
+T*binarySearch(T data, int Size){
+    selectionSort(Size);
+    int mini = 0, maxi = Size - 1, mid;
+    int curr = 0;
+    Node<T>*midNode = head;
+    while(mini <= maxi)
+    {
+        mid = (mini + maxi) / 2;
+        if(curr<mid){
+            for(int i=0;i<mid-curr;i++)
+                midNode = midNode->Next;
+
+            curr = mid;
+        }
+        else if(curr>mid){
+            for(int i=0;i<curr-mid;i++)
+                midNode = midNode->Prev;
+
+            curr = mid;
+        }
+
+        if(data == *midNode->Data)
+            return midNode->Data;
+
+        if(data > *midNode->Data)
+            mini = mid + 1;
+        else
+            maxi = mid - 1;
+    }
+
+    return NULL;
+}
 private:
 
     void Swap(Node<T>*Node1, Node<T>*Node2){
