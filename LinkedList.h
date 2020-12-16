@@ -156,37 +156,39 @@ public:
         tail = head;
     }
 
-    void bubbleSort(int size)
+    void bubbleSort(int Size)
     {
-        for(int j=0;j<size;j++)
+        int sorted = 0;
+        for(int ind=0;(ind<Size) && !sorted;ind++)
         {
             Node<T>*current = head;
-            for(int i=0;i<size-1-j;i++)
+            sorted =1;
+            for(int i=0;i<Size-1-ind;i++)
             {
+                if(current == NULL) break;
                 if(*current->Data > *current->Next->Data)
                 {
                     Swap(current,current->Next);
+                    sorted=0;
+                    //current= current->Prev;
                 }
+                current = current->Next;
             }
+
         }
     }
-private:
-    //Easy Swap
-    void Swap(Node<T>*Node1, Node<T>*Node2){
-        Node<T>*temp=Delete(Node1);
-        InsertAfter(Node2,temp);
+
+    void selectionSort(int Size)
+    {
+
+
     }
-    //Doing it the hard way (Not changing data)
+private:
+
     void Swap(Node<T>*Node1, Node<T>*Node2){
-        Node<T>*temp = Node2;
-
-        Node2 = Node1;
-        Node2->Prev = Node1->Prev;
-        Node2->Next = Node1;
-
-        Node1 = temp;
-        Node1->Prev=Node2;
-        Node1->Next=temp->Next;
+        T*temp = Node2->Data;
+        Node2->Data = Node1->Data;
+        Node1->Data = temp;
     }
     Node<T>* Search(T *data)
     {

@@ -1,4 +1,6 @@
 #include <iostream>
+#include "LinkedList.h"
+#include "Node.h"
 
 using namespace std;
 
@@ -9,22 +11,7 @@ void Swap(int &x, int &y)
     y = temp;
 }
 
-void BubbleSort(int *arr, int size)
-{
-    int sorted = 0;
-    for(int counter = 0; counter < size - 1 && !sorted; counter++)
-    {
-        sorted = 1;
-        for(int index = 0; index < size -1 - counter ; index++)
-        {
-            if(arr[index] > arr[index + 1])
-            {
-                Swap(arr[index], arr[index + 1]);
-                sorted = 0;
-            }
-        }
-    }
-}
+
 
 void SelectionSort(int *arr, int size)
 {
@@ -82,16 +69,13 @@ int BinarySearch(int *arr, int size, int num)
 
 int main()
 {
-    int arr[] = {3, 2, 5, 4, 1};
-
-    SelectionSort(arr, 5);
-
-    int foundIndex = BinarySearch(arr, 5, 4);
-
-    for(int index = 0; index < 5; index++)
-    {
-        cout << arr[index] << endl;
-    }
+    LinkedList<int> L;
+    L.Add(new int(3));
+    L.Add(new int(2));
+    L.Add(new int(4));
+    L.Add(new int(1));
+    L.bubbleSort(4);
+    L.Display();
 
     return 0;
 }
