@@ -158,6 +158,7 @@ public:
 
     void bubbleSort(int Size)
     {
+        if(Size<2) return;
         int sorted = 0;
         for(int ind=0;(ind<Size) && !sorted;ind++)
         {
@@ -180,6 +181,26 @@ public:
 
     void selectionSort(int Size)
     {
+        if(Size<2) return;
+        Node<T>*pos = head;
+        int cnt=0;
+        for(int i=0;i<Size-1;i++){
+            Node<T>* mini=pos;
+            Node<T>*current=pos->Next;
+            for(int j=i+1;j<Size;j++)
+            {
+                if(*current->Data<*mini->Data){
+                    mini = current;
+                }
+                current = current->Next;
+            }
+
+            if(mini!=pos){
+                Swap(pos,mini);
+            }
+
+            pos=pos->Next;
+        }
 
 
     }

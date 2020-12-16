@@ -37,7 +37,6 @@ void InsertionSort(int *arr, int size)
     {
         key = arr[counter];
         index = counter - 1;
-
         while(index >=0 && arr[index] > key)
         {
             arr[index + 1] = arr[index];
@@ -74,7 +73,8 @@ int main()
     L.Add(new int(2));
     L.Add(new int(4));
     L.Add(new int(1));
-    L.bubbleSort(4);
+    //L.bubbleSort(4);
+    L.selectionSort(4);
     L.Display();
 
     return 0;
